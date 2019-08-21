@@ -1,0 +1,25 @@
+{
+  "name": "react-native-pgyer-sdk",
+  "version": "0.0.1",
+  "description": "React-Native for pgyer sdk",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gpdife/react-native-pgyer-sdk.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pgyer"
+  ],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "index.js",
+    "android",
+    "img",
+    "ios",
+    "react-native-pgyer-bridge.podspec"
+  ]
+}
