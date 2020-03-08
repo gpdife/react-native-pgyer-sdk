@@ -10,11 +10,11 @@ class Pgyer {
   /**
    * 构建版本
    */
-  version = RNPgyerBridge.version;
+  version = Platform.OS === 'ios'? '' : RNPgyerBridge.version;
   /**
    * 构建号
    */
-  build = RNPgyerBridge.build;
+  build = Platform.OS === 'ios'? '' : RNPgyerBridge.build;
   
   /**
    * 初始化配置,在入口处调用
@@ -40,16 +40,19 @@ class Pgyer {
                    colorPickerBackgroundColor,
                  } = {}) {
     this.appId = appId;
-    RNPgyerBridge.initWithConfig({
-      appId,
-      shakingThreshold,
-      type,
-      themeColor,
-      colorDialogTitle,
-      colorTitleBg,
-      barBackgroundColor,
-      colorPickerBackgroundColor
-    })
+    if(Platform.OS === 'ios') {}
+    else {
+      RNPgyerBridge.initWithConfig({
+        appId,
+        shakingThreshold,
+        type,
+        themeColor,
+        colorDialogTitle,
+        colorTitleBg,
+        barBackgroundColor,
+        colorPickerBackgroundColor
+      })
+    }
   }
   
   /**
@@ -59,7 +62,10 @@ class Pgyer {
    * @param userInfo  额外信息
    */
   reportException({name, reason, userInfo} = {}) {
-    RNPgyerBridge.reportException({name, reason, userInfo})
+    if(Platform.OS === 'ios') {}
+    else {
+      RNPgyerBridge.reportException({name, reason, userInfo})
+    }
   }
   
   /**
@@ -74,7 +80,7 @@ class Pgyer {
    */
   checkUpdate({forced = false, userCanRetry, deleteHistoryApk, autoInstall = true, onProgress} = {}) {
     if (Platform.OS === 'ios') {
-      RNPgyerBridge.checkUpdate()
+      // RNPgyerBridge.checkUpdate()
       return Promise.resolve();
     } else {
       let sub;
@@ -124,7 +130,7 @@ class Pgyer {
    */
   showFeedbackView(params = {}) {
     if (Platform.OS === 'ios') {
-      RNPgyerBridge.showFeedbackView()
+      // RNPgyerBridge.showFeedbackView()
     } else {
       RNPgyerBridge.showFeedbackView(params)
     }
