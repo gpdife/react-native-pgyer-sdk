@@ -1,6 +1,6 @@
 {
   "name": "react-native-pgyer-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React-Native for pgyer sdk",
   "main": "index.js",
   "repository": {
